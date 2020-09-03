@@ -1,0 +1,68 @@
+app:
+  name: dox365
+  version: v0.1
+  client:
+    id: test
+    secret: secret
+    
+  
+s3:
+  accessKeyId: ##### Key
+  accessSecretKey: ##### Secret key
+  bucketName: dox365
+  s3EndPoint: ##### S3 host name
+  region: ##### Region
+  rootFolder: ##### Folder structure intials for S3
+  
+
+es:
+  host: #####ES Host name e.g search-test-ythx5kamumme.us-west-1.es.amazonaws.com
+  userName: admin
+  password: admin
+  port: 443
+  protocol: https 
+  connectionTimeout: 150000
+  socketTimeout: 120000
+  retryTimeout: 60000 
+  checkCredentials: false
+
+mongo:
+  database: #### Database name
+  username: #### username 
+  password: #### Pwd
+    
+spring:
+  data:
+    mongodb:     
+      uri: mongodb+srv://${mongo.username}:${mongo.password}@HosntName.com/${mongo.database}?retryWrites=true&w=majority
+  security:
+    oauth2:
+      resource:
+         filter-order: 3 
+logging:
+  level:
+    org.springframework.data: debug
+    com.saml.dox365.upload.app: debug
+    
+
+flow: 
+  s3_delete_maxCount: 500      
+  template_downloadLocation: \Users\atuteja2\
+  template_downloadFormat: csv 
+  
+
+#server:
+#  port: 8081
+#  servlet:
+#    context-path: /auth
+
+user:
+  oauth:
+    clientId: #### Client id eg D2dpxQ3vPrt12345
+    clientSecret: #### Client secret eg 1234kk5czHNuSRtmhGmAGL42Ca12344545345435
+    redirectUris: http://localhost:8082/login/oauth2/code/
+    user:
+      username: admin
+      password: admin
+    
+  
